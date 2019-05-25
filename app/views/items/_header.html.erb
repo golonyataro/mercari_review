@@ -1,0 +1,106 @@
+<header>
+  <div class="header-top">
+    <div class="header-top-title">
+      <a href="/"><img src="https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?613028459" alt=""></a>
+    </div>
+    <% if user_signed_in? %>
+      <div class="header-top-icon">
+        <i class="user-image"></i>
+        <i class="far fa-bell fa-lg"></i>
+        <i class="fas fa-check fa-lg"></i>
+        <a href="/users/<%= current_user.id %>"><i class="fas fa-user fa-lg"></i></a>
+      </div>
+    <% else %>
+      <div>
+        <div class="header-top-icon">
+          <%= link_to "新規登録", "/users/new_select", class: 'new' %>
+          <%= link_to "ログイン", new_user_session_path, class: 'login' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="header-middle">
+    <input type="text" placeholder="何をお探しですか？">
+    <a href="/items/search"><i class="fas fa-search"></i></a>
+  </div>
+  <div class="header-bottom">
+    <div class="header-bottom-right">
+      <div class="header-bottom-search" id="search-category">
+        <i class="fas fa-list"></i>
+
+
+
+        <ul class="menu">
+          <li class="menu__multi">
+            <a href="#" class="header-bottom-search-type init-bottom">カテゴリーから探す</a>
+            <ul class="menu__second-level">
+                <!-- レディース　第一階層 -->
+              <li>
+                <a href="#" class="init-right">レディース</a>
+                <ul class="menu__third-level">
+                  <!-- 第二階層 -->
+                  <li>
+                    <a href="#" class="init-right">トップス</a>
+                    <ul class="menu__fourth-level">
+                      <!-- 第三階層 -->
+                      <li><a href="#">Tシャツ</a></li>
+                      <li><a href="#">カットソー</a></li>
+                      <li><a href="#">ネックレス</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">ジャケット</a></li>
+                  <li><a href="#">パンツ</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="init-right">メンズ</a>
+              </li>
+              <li>
+                <a href="#" class="init-right">ベビー・キッズ</a>
+              </li>
+              <li>
+                <a href="#" class="init-right">インテリア・住まい・小物</a>
+              </li>
+              <li>
+                <a href="#" class="init-right">本・音楽・ゲーム</a>
+              </li>
+              <li>
+                <a href="#" class="init-right">おもちゃ・ホビー・グッズ</a>
+              </li>
+              <li>
+                <a href="#" class="init-right">コスメ・香水・美容</a>
+              </li>
+              <li>
+                <a href="#" class="init-right">家電・スマホ・カメラ</a>
+              </li>
+              <li>
+                <a href="#" class="init-right">スポーツ・レジャー</a>
+              </li>
+              <li>
+                <a href="#" class="init-right">ハンドメイド</a>
+              </li>
+              <li>
+                <a href="#" class="init-right">チケット</a>
+              </li>
+              <li>
+                <a href="#" class="init-right">自転車・オートバイ</a>
+              </li>
+              <li>
+                <a href="#" class="init-right">その他</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+
+
+      </div>
+    </div>
+    <div class="header-bottom-left">
+      <div class="header-bottom-search">
+        <i class="fas fa-tags"></i>
+        <div class="header-bottom-search-type">ブランドから探す</div>
+      </div>
+    </div>
+  </div>
+</header>
