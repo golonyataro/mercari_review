@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>メルカリトップ画面</title>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  </head>
+
+  <body>
+    <div class="home">
+      <%= render partial: "header" %>
+      <main>
+        <%= link_to("メルガチャ","/items/random_page", class: "btn-random") %>
+        <a href="/items/new" class="btn-exhibition">
+          <i class="fas fa-camera fa-lg">出品</i>
+        </a>
+        <div class="top-banner" id="top-banner">
+          <img src="http://www.v3wall.com/wallpaper/3840_1200/1406/3840_1200_201406231140461375800.jpg" alt="">
+          <img src="http://www.v3wall.com/wallpaper/3840_1200/1406/3840_1200_201406231140461375800.jpg" alt="">
+          <img src="http://www.v3wall.com/wallpaper/3840_1200/1406/3840_1200_201406231140461375800.jpg" alt="">
+        </div>
+        <div class="pickup">
+          <div class="pickup-category">
+            <p class="pickup-head">ピックアップカテゴリー</p>
+            <div class="pickup-contents">
+              <a href="" class="pickup-type">レディース新着アイテム</a><br>
+              <div class="pickup-content">
+                <% @items.each do |item| %>
+                  <% if item.category.category_large == "レディース" %>
+                    <%= render partial: "item-array", locals: { item: item } %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+            <div class="pickup-contents">
+              <a href="" class="pickup-type">おもちゃ・ホビー・グッズ新着アイテム</a><br>
+              <div class="pickup-content">
+                <% @items.each do |item| %>
+                  <% if item.category.category_large == "おもちゃ・ホビー・グッズ" %>
+                    <%= render partial: "item-array", locals: { item: item } %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+            <div class="pickup-contents">
+              <a href="" class="pickup-type">ベビー・キッズ新着アイテム</a><br>
+              <div class="pickup-content">
+                <% @items.each do |item| %>
+                  <% if item.category.category_large == "---" %>
+                    <%= render partial: "item-array", locals: { item: item } %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+            <div class="pickup-contents">
+              <a href="" class="pickup-type">コスメ・香水・美容新着アイテム</a><br>
+              <div class="pickup-content">
+                <% @items.each do |item| %>
+                  <% if item.category.category_large == "---" %>
+                    <%= render partial: "item-array", locals: { item: item } %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="pickup-bland">
+            <p class="pickup-head">ピックアップブランド</p>
+            <div class="pickup-contents">
+              <a href="" class="pickup-type">シャネル新着アイテム</a><br>
+              <div class="pickup-content">
+                <% @items.each do |item| %>
+                  <% if item.category.category_large == "---" %>
+                    <%= render partial: "item-array", locals: { item: item } %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+            <div class="pickup-contents">
+              <a href="" class="pickup-type">ルイヴィトン新着アイテム</a><br>
+              <div class="pickup-content">
+                <% @items.each do |item| %>
+                  <% if item.category.category_large == "---" %>
+                    <%= render partial: "item-array", locals: { item: item } %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+            <div class="pickup-contents">
+              <a href="" class="pickup-type">シュプリーム新着アイテム</a><br>
+              <div class="pickup-content">
+                <% @items.each do |item| %>
+                  <% if item.category.category_large == "---" %>
+                    <%= render partial: "item-array", locals: { item: item } %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+            <div class="pickup-contents">
+              <a href="" class="pickup-type">ナイキ新着アイテム</a><br>
+              <div class="pickup-content">
+                <% @items.each do |item| %>
+                  <% if item.category.category_large == "---" %>
+                    <%= render partial: "item-array", locals: { item: item } %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <%= render partial: "footer" %>
+    </div>
+  </body>
+</html>
+
