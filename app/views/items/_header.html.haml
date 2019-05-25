@@ -1,0 +1,77 @@
+%body
+  %header
+    .header-top
+      .header-top-title
+        %a{:href => "/"}
+          %img{:alt => "", :src => "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?613028459"}/
+      - if user_signed_in?
+        .header-top-icon
+          %i.user-image
+          %i.far.fa-bell.fa-lg
+          %i.fas.fa-check.fa-lg
+          %a{:href => "/users/#{current_user.id}"}
+            %i.fas.fa-user.fa-lg
+      - else
+        %div
+          .header-top-icon
+            = link_to "新規登録", "/users/new_select", class: 'new'
+            = link_to "ログイン", new_user_session_path, class: 'login'
+    .header-middle
+      %input{:placeholder => "何をお探しですか？", :type => "text"}/
+      %a{:href => "/items/search"}
+        %i.fas.fa-search
+    .header-bottom
+      .header-bottom-right
+        #search-category.header-bottom-search
+          %i.fas.fa-list
+          %ul.menu
+            %li.menu__multi
+              %a.header-bottom-search-type.init-bottom{:href => "#"} カテゴリーから探す
+              %ul.menu__second-level
+                / レディース　第一階層
+                %li
+                  %a.init-right{:href => "#"} レディース
+                  %ul.menu__third-level
+                    / 第二階層
+                    %li
+                      %a.init-right{:href => "#"} トップス
+                      %ul.menu__fourth-level
+                        / 第三階層
+                        %li
+                          %a{:href => "#"} Tシャツ
+                        %li
+                          %a{:href => "#"} カットソー
+                        %li
+                          %a{:href => "#"} ネックレス
+                    %li
+                      %a{:href => "#"} ジャケット
+                    %li
+                      %a{:href => "#"} パンツ
+                %li
+                  %a.init-right{:href => "#"} メンズ
+                %li
+                  %a.init-right{:href => "#"} ベビー・キッズ
+                %li
+                  %a.init-right{:href => "#"} インテリア・住まい・小物
+                %li
+                  %a.init-right{:href => "#"} 本・音楽・ゲーム
+                %li
+                  %a.init-right{:href => "#"} おもちゃ・ホビー・グッズ
+                %li
+                  %a.init-right{:href => "#"} コスメ・香水・美容
+                %li
+                  %a.init-right{:href => "#"} 家電・スマホ・カメラ
+                %li
+                  %a.init-right{:href => "#"} スポーツ・レジャー
+                %li
+                  %a.init-right{:href => "#"} ハンドメイド
+                %li
+                  %a.init-right{:href => "#"} チケット
+                %li
+                  %a.init-right{:href => "#"} 自転車・オートバイ
+                %li
+                  %a.init-right{:href => "#"} その他
+      .header-bottom-left
+        .header-bottom-search
+          %i.fas.fa-tags
+          .header-bottom-search-type ブランドから探す
