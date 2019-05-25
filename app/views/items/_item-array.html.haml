@@ -6,7 +6,7 @@
       - if item.category.category_large == "#{type}"
         = link_to("/items/#{item.id}", class: "link") do
           .relative
-            %img{:alt => "", :src => "#{item.image}"}/
+            = image_tag "#{item.image}", alt: ""
             - if item.buyer_id != 0
               %p.sold SOLD
           .item-detail
