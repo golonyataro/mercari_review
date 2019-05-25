@@ -1,81 +1,73 @@
-!!!
-%html{:lang => "ja"}
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %meta{:charset => "UTF-8"}/
-    %title メルカリトップ画面
-    %link{:href => "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css", :rel => "stylesheet", :type => "text/css"}/
-    %script{:src => "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js", :type => "text/javascript"}
-  %body
-    .home
-      = render partial: "header"
-      %main
-        = link_to("メルガチャ","/items/random_page", class: "btn-random")
-        %a.btn-exhibition{:href => "/items/new"}
-          %i.fas.fa-camera.fa-lg 出品
-        #top-banner.top-banner
-          %img{:alt => "", :src => "http://www.v3wall.com/wallpaper/3840_1200/1406/3840_1200_201406231140461375800.jpg"}/
-          %img{:alt => "", :src => "http://www.v3wall.com/wallpaper/3840_1200/1406/3840_1200_201406231140461375800.jpg"}/
-          %img{:alt => "", :src => "http://www.v3wall.com/wallpaper/3840_1200/1406/3840_1200_201406231140461375800.jpg"}/
-        .pickup
-          .pickup-category
-            %p.pickup-head ピックアップカテゴリー
-            .pickup-contents
-              %a.pickup-type{:href => ""} レディース新着アイテム
-              %br/
-              .pickup-content
-                - @items.each do |item|
-                  - if item.category.category_large == "レディース"
-                    = render partial: "item-array", locals: { item: item }
-            .pickup-contents
-              %a.pickup-type{:href => ""} おもちゃ・ホビー・グッズ新着アイテム
-              %br/
-              .pickup-content
-                - @items.each do |item|
-                  - if item.category.category_large == "おもちゃ・ホビー・グッズ"
-                    = render partial: "item-array", locals: { item: item }
-            .pickup-contents
-              %a.pickup-type{:href => ""} ベビー・キッズ新着アイテム
-              %br/
-              .pickup-content
-                - @items.each do |item|
-                  - if item.category.category_large == "---"
-                    = render partial: "item-array", locals: { item: item }
-            .pickup-contents
-              %a.pickup-type{:href => ""} コスメ・香水・美容新着アイテム
-              %br/
-              .pickup-content
-                - @items.each do |item|
-                  - if item.category.category_large == "---"
-                    = render partial: "item-array", locals: { item: item }
-          .pickup-bland
-            %p.pickup-head ピックアップブランド
-            .pickup-contents
-              %a.pickup-type{:href => ""} シャネル新着アイテム
-              %br/
-              .pickup-content
-                - @items.each do |item|
-                  - if item.category.category_large == "---"
-                    = render partial: "item-array", locals: { item: item }
-            .pickup-contents
-              %a.pickup-type{:href => ""} ルイヴィトン新着アイテム
-              %br/
-              .pickup-content
-                - @items.each do |item|
-                  - if item.category.category_large == "---"
-                    = render partial: "item-array", locals: { item: item }
-            .pickup-contents
-              %a.pickup-type{:href => ""} シュプリーム新着アイテム
-              %br/
-              .pickup-content
-                - @items.each do |item|
-                  - if item.category.category_large == "---"
-                    = render partial: "item-array", locals: { item: item }
-            .pickup-contents
-              %a.pickup-type{:href => ""} ナイキ新着アイテム
-              %br/
-              .pickup-content
-                - @items.each do |item|
-                  - if item.category.category_large == "---"
-                    = render partial: "item-array", locals: { item: item }
-      = render partial: "footer"
+%body
+  .home
+    = render partial: "header"
+    %main
+      = link_to("メルガチャ","/items/random_page", class: "btn-random")
+      %a.btn-exhibition{:href => "/items/new"}
+        %i.fas.fa-camera.fa-lg 出品
+      #top-banner.top-banner
+        = image_tag "http://www.v3wall.com/wallpaper/3840_1200/1406/3840_1200_201406231140461375800.jpg", alt: ""
+        = image_tag "http://www.v3wall.com/wallpaper/3840_1200/1406/3840_1200_201406231140461375800.jpg", alt: ""
+        = image_tag "http://www.v3wall.com/wallpaper/3840_1200/1406/3840_1200_201406231140461375800.jpg", alt: ""
+      .pickup
+        .pickup-category
+          %p.pickup-head ピックアップカテゴリー
+          .pickup-contents
+            = link_to("レディース新着アイテム","", class: "pickup-type")
+            %br/
+            .pickup-content
+              - @items.each do |item|
+                - if item.category.category_large == "レディース"
+                  = render partial: "item-array", locals: { item: item }
+          .pickup-contents
+            = link_to("おもちゃ・ホビー・グッズ新着アイテム","", class: "pickup-type")
+            %br/
+            .pickup-content
+              - @items.each do |item|
+                - if item.category.category_large == "おもちゃ・ホビー・グッズ"
+                  = render partial: "item-array", locals: { item: item }
+          .pickup-contents
+            = link_to("ベビー・キッズ新着アイテム","", class: "pickup-type")
+            %br/
+            .pickup-content
+              - @items.each do |item|
+                - if item.category.category_large == "---"
+                  = render partial: "item-array", locals: { item: item }
+          .pickup-contents
+            = link_to("コスメ・香水・美容新着アイテム","", class: "pickup-type")
+            %br/
+            .pickup-content
+              - @items.each do |item|
+                - if item.category.category_large == "---"
+                  = render partial: "item-array", locals: { item: item }
+        .pickup-bland
+          %p.pickup-head ピックアップブランド
+          .pickup-contents
+            = link_to("シャネル新着アイテム","", class: "pickup-type")
+            %br/
+            .pickup-content
+              - @items.each do |item|
+                - if item.category.category_large == "---"
+                  = render partial: "item-array", locals: { item: item }
+          .pickup-contents
+            = link_to("ルイヴィトン新着アイテム","", class: "pickup-type")
+            %br/
+            .pickup-content
+              - @items.each do |item|
+                - if item.category.category_large == "---"
+                  = render partial: "item-array", locals: { item: item }
+          .pickup-contents
+            = link_to("シュプリーム新着アイテム","", class: "pickup-type")
+            %br/
+            .pickup-content
+              - @items.each do |item|
+                - if item.category.category_large == "---"
+                  = render partial: "item-array", locals: { item: item }
+          .pickup-contents
+            = link_to("ナイキ新着アイテム","", class: "pickup-type")
+            %br/
+            .pickup-content
+              - @items.each do |item|
+                - if item.category.category_large == "---"
+                  = render partial: "item-array", locals: { item: item }
+    = render partial: "footer"
