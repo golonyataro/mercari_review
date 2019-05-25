@@ -13,14 +13,14 @@
         .pickup-category
           %p.pickup-head ピックアップカテゴリー
           .pickup-contents
-            = render partial: "item-array", locals: { items: @items, category: "レディース" }
-            = render partial: "item-array", locals: { items: @items, category: "おもちゃ・ホビー・グッズ" }
-            = render partial: "item-array", locals: { items: @items, category: "ベビー・キッズ" }
-            = render partial: "item-array", locals: { items: @items, category: "コスメ・香水・美容" }
+            = render partial: "item-array", locals: { items: @items, type: "レディース" }
+            = render partial: "item-array", locals: { items: @items, type: "おもちゃ・ホビー・グッズ" }
+            = render partial: "item-array", locals: { items: @items, type: "ベビー・キッズ" }
+            = render partial: "item-array", locals: { items: @items, type: "コスメ・香水・美容" }
         .pickup-bland
           %p.pickup-head ピックアップブランド
           .pickup-contents
-            = render partial: "item-array", locals: { items: @items, category: "シャネル" }
-            = render partial: "item-array", locals: { items: @items, category: "シュプリーム" }
-            = render partial: "item-array", locals: { items: @items, category: "ナイキ" }
+            = render partial: "item-array", locals: { items: @items, type: "---" }
+            = render partial: "item-array", locals: { items: @items, type: "シュプリーム" }
+            = render partial: "item-array", locals: { items: @items, type: "ナイキ" }
     = render partial: "footer"
