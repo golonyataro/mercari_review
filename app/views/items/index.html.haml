@@ -13,61 +13,14 @@
         .pickup-category
           %p.pickup-head ピックアップカテゴリー
           .pickup-contents
-            = link_to("レディース新着アイテム","", class: "pickup-type")
-            %br/
-            .pickup-content
-              - @items.each do |item|
-                - if item.category.category_large == "レディース"
-                  = render partial: "item-array", locals: { item: item }
-          .pickup-contents
-            = link_to("おもちゃ・ホビー・グッズ新着アイテム","", class: "pickup-type")
-            %br/
-            .pickup-content
-              - @items.each do |item|
-                - if item.category.category_large == "おもちゃ・ホビー・グッズ"
-                  = render partial: "item-array", locals: { item: item }
-          .pickup-contents
-            = link_to("ベビー・キッズ新着アイテム","", class: "pickup-type")
-            %br/
-            .pickup-content
-              - @items.each do |item|
-                - if item.category.category_large == "---"
-                  = render partial: "item-array", locals: { item: item }
-          .pickup-contents
-            = link_to("コスメ・香水・美容新着アイテム","", class: "pickup-type")
-            %br/
-            .pickup-content
-              - @items.each do |item|
-                - if item.category.category_large == "---"
-                  = render partial: "item-array", locals: { item: item }
+            = render partial: "item-array", locals: { items: @items, category: "レディース" }
+            = render partial: "item-array", locals: { items: @items, category: "おもちゃ・ホビー・グッズ" }
+            = render partial: "item-array", locals: { items: @items, category: "ベビー・キッズ" }
+            = render partial: "item-array", locals: { items: @items, category: "コスメ・香水・美容" }
         .pickup-bland
           %p.pickup-head ピックアップブランド
           .pickup-contents
-            = link_to("シャネル新着アイテム","", class: "pickup-type")
-            %br/
-            .pickup-content
-              - @items.each do |item|
-                - if item.category.category_large == "---"
-                  = render partial: "item-array", locals: { item: item }
-          .pickup-contents
-            = link_to("ルイヴィトン新着アイテム","", class: "pickup-type")
-            %br/
-            .pickup-content
-              - @items.each do |item|
-                - if item.category.category_large == "---"
-                  = render partial: "item-array", locals: { item: item }
-          .pickup-contents
-            = link_to("シュプリーム新着アイテム","", class: "pickup-type")
-            %br/
-            .pickup-content
-              - @items.each do |item|
-                - if item.category.category_large == "---"
-                  = render partial: "item-array", locals: { item: item }
-          .pickup-contents
-            = link_to("ナイキ新着アイテム","", class: "pickup-type")
-            %br/
-            .pickup-content
-              - @items.each do |item|
-                - if item.category.category_large == "---"
-                  = render partial: "item-array", locals: { item: item }
+            = render partial: "item-array", locals: { items: @items, category: "シャネル" }
+            = render partial: "item-array", locals: { items: @items, category: "シュプリーム" }
+            = render partial: "item-array", locals: { items: @items, category: "ナイキ" }
     = render partial: "footer"
