@@ -1,9 +1,9 @@
 .pickup-contents
-  = link_to("#{category}新着アイテム","", class: "pickup-type")
+  = link_to("#{type}新着アイテム","", class: "pickup-type")
   %br/
   .pickup-content
     - @items.each do |item|
-      - if item.category.category_large == "#{category}"
+      - if item.category.category_large == "#{type}"
         = link_to("/items/#{item.id}", class: "link") do
           .relative
             %img{:alt => "", :src => "#{item.image}"}/
