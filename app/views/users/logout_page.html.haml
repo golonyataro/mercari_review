@@ -1,0 +1,17 @@
+.home
+  = render partial: "items/header"
+  .pan
+    %ul
+      %li= link_to("メルカリ","/", class: "page")
+      %li
+        %i.fas.fa-chevron-right
+      %li= link_to("マイページ","/users/#{@user.id}", class: "page")
+      %li
+        %i.fas.fa-chevron-right
+      %li= link_to("ログアウト","", class: "current-page")
+.mypage
+  .center
+    = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout"
+= render partial: "mypage"
+.home
+  = render partial: "items/footer"

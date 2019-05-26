@@ -1,0 +1,54 @@
+.home
+  = render partial: "items/header"
+  .pan
+    %ul
+      %li= link_to("メルカリ","/", class: "page")
+      %li
+        %i.fas.fa-chevron-right
+      %li= link_to"マイページ", user_path(@user.id), class: "page"
+      %li
+        %i.fas.fa-chevron-right
+      %li= link_to("本人情報","", class: "current-page")
+.users
+  .identification
+    .identification-title
+      %p 本人情報の登録
+    .identification-contents
+      .identification-content.content-top
+        %p お客さまの本人情報をご登録ください。登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+        %a{:href => ""}
+          本人確認書類のアップロードについて
+          %i.fas.fa-chevron-right
+      .identification-content
+        %p.name-title お名前
+        %p= @user.name
+      .identification-content
+        %p.name-title お名前カナ
+        %p= @user.name
+      .identification-content
+        %p.name-title 生年月日
+        %p
+      .identification-content
+        %p.name-title 郵便番号
+        %input{:placeholder => "例) 1234567", :type => "text"}/
+      .identification-content
+        %p.name-title 都道府県
+        %input{:type => "text"}/
+      .identification-content
+        %p.name-title 市区町村
+        %input{:type => "text"}/
+      .identification-content
+        %p.name-title 番地
+        %input{:type => "text"}/
+      .identification-content
+        %p.name-title 建物名
+        %input{:type => "text"}/
+      .register
+        = link_to("登録する","", class: "register-btn")
+      .identification-content
+        %a{:href => ""}
+          本人情報の登録について
+          %i.fas.fa-chevron-right
+= render partial: "mypage"
+.home
+  = render partial: "items/footer"
