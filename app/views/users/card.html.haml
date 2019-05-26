@@ -15,14 +15,13 @@
 
       %label 登録クレジットカード情報
       %br
-      = "**** **** **** " + @default_card_information.last4
+      = credit_show
       %br
-      - exp_month = @default_card_information.exp_month.to_s
-      - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-      = exp_month + " / " + exp_year
+      = credit_addition
       = form_tag("/users/card_delete", method: :post, id: 'charge-form',  name: "inputForm") do
         %input{ type: "hidden", name: "card_id", value: "" }
         %button 削除する
+
 
 = render partial: "mypage"
 .home
