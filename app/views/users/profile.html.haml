@@ -1,0 +1,28 @@
+.home
+  = render partial: "items/header"
+  .pan
+    %ul
+      %li= link_to("メルカリ","/", class: "page")
+      %li
+        %i.fas.fa-chevron-right
+      %li= link_to("マイページ","/users/#{@user.id}", class: "page")
+      %li
+        %i.fas.fa-chevron-right
+      %li= link_to("プロフィール","", class: "current-page")
+.users
+  .profile
+    .profile-top
+      %p プロフィール
+      .relative
+        %img{:alt => "", :src => "https://4.bp.blogspot.com/-Zy9QmWxqcqU/WpJjYRSrhKI/AAAAAAAABHw/HWN7vKwTUNEtCdgeYdAbixlELRvI_RdyQCLcBGAs/s1600/01s11.png"}/
+        .absolute
+          %i.far.fa-user.fa-3x
+          %input{:type => "text", :value => "#{@user.name}"}/
+    .profile-bottom
+      .textarea
+        %input{:placeholder => "例) こんにちは", :type => "textarea"}/
+      .profile-change
+        = link_to("変更する","", class: "change-btn")
+= render partial: "mypage"
+.home
+  = render partial: "items/footer"
