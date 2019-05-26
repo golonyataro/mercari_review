@@ -2,13 +2,15 @@
   = render partial: "items/header"
   .pan
     %ul
-      %li= link_to("メルカリ", root_path, class: "page")
+      %li
+        = link_to("メルカリ", root_path, class: "page")
       %li
         %i.fas.fa-chevron-right
-      %li= link_to("マイページ", "", class: "current-page")
+      %li
+        = link_to("マイページ", "", class: "current-page")
 .mypage
   .mypage__user
-    = image_tag "/uploads/img/シマシマ.png", alt: ""
+    = image_tag "/uploads/images/シマシマ.png", alt: ""
     .mypage__user__information
       .user__icon
         %i.far.fa-user.fa-3x
