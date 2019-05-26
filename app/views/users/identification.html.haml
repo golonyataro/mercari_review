@@ -5,7 +5,7 @@
       %li= link_to("メルカリ","/", class: "page")
       %li
         %i.fas.fa-chevron-right
-      %li= link_to("マイページ","/users/#{@user.id}", class: "page")
+      %li= link_to"マイページ", user_path(@user.id), class: "page"
       %li
         %i.fas.fa-chevron-right
       %li= link_to("本人情報","", class: "current-page")
