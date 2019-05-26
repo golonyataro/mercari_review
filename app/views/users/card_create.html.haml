@@ -7,7 +7,7 @@
       .card-lists
         .title
           %p クレジットカード情報入力
-        = form_tag("/users/pay", method: :post, id: 'charge-form',  name: "inputForm") do
+        = form_tag(users_pay_path, method: :post, id: 'charge-form',  name: "inputForm") do
           .card-number
             .card-p
               %p.card-title カード番号 
