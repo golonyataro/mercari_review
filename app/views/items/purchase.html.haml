@@ -1,0 +1,42 @@
+.purchase
+  %header
+    = link_to root_path do
+      = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?376951604", alt: ""
+  %main
+    .main-header
+      %p 購入を確定しますか?
+    .main-contents
+      .item-image
+        = image_tag "#{@item.image}", alt: ""
+      .item-name
+        = @item.name
+      .item-price
+        ¥#{@item.price}
+      .center
+        .point
+          ポイントはありません
+      .item-price-sum
+        ¥#{@item.price}
+      .credit
+        %p 支払い方法
+        - if @default_card_information.blank?
+          %br/
+        - else
+          = "**** **** ****" + @default_card_information.last4
+          - exp_month = @default_card_information.exp_month.to_s
+          - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+          = exp_month + " / " + exp_year
+      .center
+        .purchase-btn
+          = link_to("購入する","/items/#{@item.id}/purchase_patch",:method => "PATCH",data:{confirm: "本当に購入してもよろしいでしょうか？"})
+  %footer
+    .footer-head
+      = link_to "プライバシーポリシー" 
+      = link_to "メルカリ利用規約"
+      = link_to "特定商取引に関する表記"
+    .footer-image
+      %a{:href => "/"}
+      = link_to "/" do
+        = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?376951604", alt: ""
+    .footer-p
+      %p © 2019 Mercari

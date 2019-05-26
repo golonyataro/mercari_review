@@ -1,0 +1,113 @@
+%body
+  .home
+    = render partial: "header"
+    .pan
+      %ul
+        %li= link_to("メルカリ",root_path, class: "page")
+        %li
+          %i.fas.fa-chevron-right
+        %li= link_to("#{@item.name}", items_search_path, class: "current-page")
+  .item-show
+    .random-result
+      - if @number == "1"
+        %p.item-random
+          商品ガチャガチャの結果『#{@item.name}』が出ました!
+        %p 割引ガチャガチャの結果『大当たり』が出たので商品が無料になります
+      - elsif @number == "2"
+        %p.item-random
+          商品ガチャガチャの結果『#{@item.name}』が出ました!
+        %p 割引ガチャガチャの結果『あたり』が出たので商品が2割引になります
+      - elsif @number == "3"
+        %p.item-random
+          商品ガチャガチャの結果『#{@item.name}』が出ました!
+        %p 割引ガチャガチャの結果『ふつー』が出たので商品が1割引になります
+    %main
+      .main-top
+        .item-name
+          = @item.name
+        .item-detail
+          .item-image
+            .relative
+              %img{:alt => "", :src => "#{@item.image}"}/
+              - if @item.buyer_id != 0
+                %p.sold SOLD
+          .item-table
+            %table
+              %tbody
+                %tr
+                  %th 出品者
+                  %td
+                    = link_to "#{@user.name}", user_path(@user.id)
+                %tr
+                  %th カテゴリー
+                  %td
+                    = link_to "#{@category.category_large}", ""
+                %tr
+                  %th ブランド
+                  %td
+                    = link_to "#{@bland.bland_name}", ""
+                %tr
+                  %th 商品のサイズ
+                  %td= @category.category_size
+                %tr
+                  %th 商品の状態
+                  %td= @item.status
+                %tr
+                  %th 配送料の負担
+                  %td= @item.shipping_which
+                %tr
+                  %th 配送の方法
+                  %td= @item.shipping_method
+                %tr
+                  %th 配送元地域
+                  %td= @item.shipping_region
+                %tr
+                  %th 発送日の目安
+                  %td= @item.shipping_day
+        .item-price
+          .item-price-left
+            - if @number == "1"
+              .random-price
+                %p
+                  ¥#{@item.price} →
+                ¥#{@item.price - @item.price}
+            - elsif @number == "2"
+              .random-price
+                %p
+                  ¥#{@item.price} →
+                ¥#{@item.price * 80 / 100}
+            - elsif @number == "3"
+              .random-price
+                %p
+                  ¥#{@item.price} →
+                ¥#{@item.price * 90 / 100}
+            - else
+              ¥#{@item.price}
+          .item-price-right
+            .item-tax (税込)
+            .item-shipping-which= @item.shipping_which
+        - if @item.buyer_id == 0
+          .main-btn
+            = link_to("購入画面に進む","/items/#{@item.id}/purchase")
+        - else
+          .main-btn-sold
+            %p 売り切れました
+        .main-explain
+          = @item.explain
+      .main-bottom
+        - if @user.id == current_user.id
+          .item-change
+            .item-edit
+              = link_to("商品の編集","/items/#{@item.id}/edit", class: "edit-btn")
+            %p or
+            .item-stop-delete
+              .item-stop
+                = link_to("出品を一旦停止する","", class: "stop-btn")
+              .item-delete
+                = link_to("この商品を削除する", "/items/#{@item.id}", method: :delete, :class => "delete-btn")
+      .comment
+        .comment-title
+          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %input{:type => "textarea"}/
+        .item-comment
+          = link_to("コメントする","", class: "comment-btn")
