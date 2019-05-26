@@ -9,7 +9,7 @@
       .card-index
         %p クレジットカード一覧
         .add-card
-          = link_to("クレジットカードを追加する", "/users/#{current_user.id}/card_create", class: "add-card-btn")
+          = link_to("クレジットカードを追加する", card_create_user_path(id: current_user.id), class: "add-card-btn")
       .payment-method
         = link_to("支払い方法について", "", class: "payment-method-btn")
 
