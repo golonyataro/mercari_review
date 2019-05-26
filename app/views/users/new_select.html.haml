@@ -1,0 +1,19 @@
+.users
+  .users-new-select
+    = render "layouts/mercari-top"
+    %main
+      .users-new-select-title
+        %p 新規会員登録
+      .users-new-select-lists
+        .users-new-select-lists-email
+          .users-email
+            = link_to "メールアドレスで登録", new_user_registration_path, class: 'users-email-btn'
+        .users-sns
+          .users-sns-link
+            .users-sns-link-facebook
+              = link_to "Facebookでログイン", "", class: "facebook-btn"
+              %br/
+          .users-sns-link
+            .users-sns-link-google
+              = link_to "Googleでログイン", "", class: "google-btn"
+    = render "layouts/mercari-bottom"
