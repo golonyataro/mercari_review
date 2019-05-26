@@ -1,25 +1,19 @@
-!!!
-%html{:lang => "ja"}
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %meta{:charset => "UTF-8"}/
-    %title メルカリマイページ
-  %body
-    .home
-      = render partial: "items/header"
-      .pan
-        %ul
-          %li= link_to("メルカリ", root_path, class: "page")
-          %li
-            %i.fas.fa-chevron-right
-          %li= link_to("マイページ", "", class: "current-page")
-    .mypage
-      .relative
-        = image_tag "https://4.bp.blogspot.com/-Zy9QmWxqcqU/WpJjYRSrhKI/AAAAAAAABHw/HWN7vKwTUNEtCdgeYdAbixlELRvI_RdyQCLcBGAs/s1600/01s11.png", alt: ""
-        .user-information
-          .user-icon
-            %i.far.fa-user.fa-3x
-          .user-name= current_user.name
-    = render partial: "mypage"
-    .home
-      = render partial: "items/footer"
+%body
+  .home
+    = render partial: "items/header"
+    .pan
+      %ul
+        %li= link_to("メルカリ", root_path, class: "page")
+        %li
+          %i.fas.fa-chevron-right
+        %li= link_to("マイページ", "", class: "current-page")
+  .mypage
+    .mypage__user
+      = image_tag "https://4.bp.blogspot.com/-Zy9QmWxqcqU/WpJjYRSrhKI/AAAAAAAABHw/HWN7vKwTUNEtCdgeYdAbixlELRvI_RdyQCLcBGAs/s1600/01s11.png", alt: ""
+      .mypage__user__information
+        .user__icon
+          %i.far.fa-user.fa-3x
+        .user__name= current_user.name
+  = render partial: "mypage"
+  .home
+    = render partial: "items/footer"
