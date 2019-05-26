@@ -3,10 +3,10 @@
     = render partial: "header"
     .pan
       %ul
-        %li= link_to("メルカリ","/", class: "page")
+        %li= link_to("メルカリ",root_path, class: "page")
         %li
           %i.fas.fa-chevron-right
-        %li= link_to("#{@item.name}","", class: "current-page")
+        %li= link_to("#{@item.name}", items_search_path, class: "current-page")
   .item-show
     .random-result
       - if @number == "1"
@@ -37,15 +37,15 @@
                 %tr
                   %th 出品者
                   %td
-                    %a{:href => "/users/#{@user.id}"}= @user.name
+                    = link_to "#{@user.name}", user_path(@user.id)
                 %tr
                   %th カテゴリー
                   %td
-                    %a{:href => ""}= @category.category_large
+                    = link_to "#{@category.category_large}", ""
                 %tr
                   %th ブランド
                   %td
-                    %a{:href => ""}= @bland.bland_name
+                    = link_to "#{@bland.bland_name}", ""
                 %tr
                   %th 商品のサイズ
                   %td= @category.category_size
