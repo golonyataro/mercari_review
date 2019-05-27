@@ -1,6 +1,14 @@
 .home
   = render partial: "items/header"
-
+  .pan
+    %ul
+      %li= link_to("メルカリ","/", class: "page")
+      %li
+        %i.fas.fa-chevron-right
+      %li= link_to"マイページ", user_path(@user.id), class: "page"
+      %li
+        %i.fas.fa-chevron-right
+      %li= link_to("本人情報","", class: "current-page")
 .users
   .identification
     .identification-title
