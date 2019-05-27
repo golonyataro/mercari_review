@@ -1,0 +1,74 @@
+.users-new-select{
+  main{
+    background-color: white;
+  }
+  &-title{
+    text-align: center;
+    padding: 24px 8px;
+    border-bottom: 1px solid lightgray;
+    p{
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+  &-lists{
+    &-email{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+      .users-email{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 8px 0 20px 0;
+        background-color: #EEEEEE;
+        height: 50px;
+        width: 320px;
+        font-size: 15px;
+        &-btn{
+          color: black;
+          text-decoration: none;
+          padding: 12px 84px;
+        }
+      }
+    }
+    .users-sns{
+      &-link{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &-facebook{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 8px 0 20px 0;
+          background-color: #385185;
+          height: 50px;
+          width: 320px;
+          font-size: 15px;
+          .facebook-btn{
+            color: white;
+            text-decoration: none;
+            padding: 12px 84px;
+          }
+        }
+        &-google{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 8px 0 150px 0;
+          height: 50px;
+          width: 320px;
+          font-size: 15px;
+          border: 1px solid #979797;
+          .google-btn{
+            color: black;
+            text-decoration: none;
+            padding: 12px 84px;
+          }
+        }
+      }
+    }
+  }
+}

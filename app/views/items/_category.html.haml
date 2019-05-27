@@ -1,1 +1,135 @@
+:javascript
+  $(function(){
+    function mediumbuildHTML(id){
+      if(id == 1){
+        // レディース
         var html = `<div id="category_medium">#{c.select :category_medium, ["---","トップス","ジャケット/アウター","パンツ","スカート","ワンピース","靴","ルームウェア","レッグウェア","帽子","バッグ","アクセサリー","ヘアアクセサリー","小物","時計","ウィッグ/エクステ","浴衣/水着","スーツ/フォーマル/ドレス","マタニティ","その他"] , class: "select", id: "select_btn_medium"}</div> `
+      } else if(id == 2){
+        // メンズ
+        var html = `<div id="category_medium">#{c.select :category_medium, ["---","トップス","ジャケット/アウター","パンツ","靴","レッグウェア","アンダーウェア","帽子","バッグ","スーツ","アクセサリー","小物","時計","水着","その他"] , class: "select", id: "select_btn_medium"}</div> `
+      } else if(id == 3){
+        // ベビー・キッズ
+        var html = `<div id="category_medium">#{c.select :category_medium, ["---","ベビー服(女の子用)~95cm","ベビー服(男の子用)~95cm","ベビー服(男女兼用)~95cm","キッズ服(女の子用)100cm~","キッズ服(男の子用)100cm~","キッズ服(男女兼用)100cm~","キッズ靴","子供用ファッション小物","オムツ/トイレ/バス","外出/移動用品","授乳/食事","ベビー家具/寝具/室内用品","おもちゃ","行事/記念品","その他"] , class: "select", id: "select_btn_medium"}</div> `
+      } else if(id == 4){
+        // インテリア・住まい・小物
+        var html = `<div id="category_medium">#{c.select :category_medium, ["---","キッチン/食器","ベッド/マットレス","ソファ/ソファベッド","椅子/チェア","机/テーブル","収納家具","ラグ/カーペット/マット","カーテン/ブラインド","ライト/照明","寝具","インテリア小物","季節/年中行事","その他"] , class: "select", id: "select_btn_medium"}</div> `
+      } else if(id == 5){
+        // 本・音楽・ゲーム
+        var html = `<div id="category_medium">#{c.select :category_medium, ["---","本","漫画","雑誌","CD","DVD/ブルーレイ","レコード","テレビゲーム"] , class: "select", id: "select_btn_medium"}</div> `
+      } else if(id == 6){
+        // おもちゃ・ホビー・グッズ
+        var html = `<div id="category_medium">#{c.select :category_medium, ["---","おもちゃ","タレントグッズ","コミック/アニメグッズ","トレーディングカード","フィギュア","楽器/器材","コレクション","ミリタリー","美術品","アート用品","その他"] , class: "select", id: "select_btn_medium"}</div> `
+      } else if(id == 7){
+        // コスメ・香水・美容
+        var html = `<div id="category_medium">#{c.select :category_medium, ["---","ベースメイク","メイクアップ","ネイルケア","香水","スキンケア/基礎化粧品","ヘアケア","ボディケア","オーラルケア","リラクゼーション","ダイエット","その他"] , class: "select", id: "select_btn_medium"}</div> `
+      } else if(id == 8){
+        // 家電・スマホ・カメラ
+        var html = `<div id="category_medium">#{c.select :category_medium, ["---","スマートフォン/携帯電話","スマホアクセサリー","PC/タブレット","カメラ","テレビ/映像機器","オーディオ機器","美容/健康","冷暖房/空調","生活家電","その他"] , class: "select", id: "select_btn_medium"}</div> `
+      } else if(id == 9){
+        // スポーツ・レジャー
+        var html = `<div id="category_medium">#{c.select :category_medium, ["---","ゴルフ","フィッシング","自転車","トレーニング/エクササイズ","野球","サッカー/フットサル","テニス","スノーボード","スキー","その他スポーツ","アウトドア","その他"] , class: "select", id: "select_btn_medium"}</div> `
+      } else if(id == 10){
+        // ハンドメイド
+        var html = `<div id="category_medium">#{c.select :category_medium, ["---","アクセサリー(女性用)","ファッション/小物","アクセサリー/時計","日用品/インテリア","趣味/おもちゃ","キッズ/ベビー","素材/材料","二次創作物","その他"] , class: "select", id: "select_btn_medium"}</div> `
+      } else if(id == 11){
+        // チケット
+        var html = `<div id="category_medium">#{c.select :category_medium, ["---","音楽","スポーツ","演劇/芸能","イベント","映画","施設利用券","優待券/割引券","その他"] , class: "select", id: "select_btn_medium"}</div> `
+      } else if(id == 12){
+        // 自転車・オートバイ
+        var html = `<div id="category_medium">#{c.select :category_medium, ["---","自動車本体","自動車タイヤ/ホイール","自動車パーツ","自動車アクセサリー","オートバイ車体","オートバイパーツ","オートバイアクセサリー","その他"] , class: "select", id: "select_btn_medium"}</div> `
+      } else {
+        // その他
+        var html = `<div id="category_medium">#{c.select :category_medium, ["---","まとめ売り","ペット用品","食品","飲料/酒","日用品/生活雑貨/旅行","アンティーク/コレクション","文房具/事務用品","事務/店舗用品","その他"] , class: "select", id: "select_btn_medium"}</div> `
+      }
+      return html;
+    }
+    function smallbuildHTML(idl,idm){
+      // レディース
+      if(idl == 1 && idm == 1){
+        var html = `#{c.select :category_small, ["---","Tシャツ/カットソー(半袖/袖なし)","Tシャツ/カットソー(七分/長袖)","シャツ/ブラウス(半袖/袖なし)","シャツ/ブラウス(七分/長袖)","ポロシャツ","キャミソール","タンクトップ","ホルターネック","ニット/セーター","チュニック","カーディガン/ボレロ","アンサンブル","ベスト/ジレ","パーカー","トレーナー/スウェット","ペアトップ/チューブトップ","ジャージ","その他"], class: "select"}`
+      } else if(idl == 1 && idm == 2) {
+        var html = `#{c.select :category_small, ["---","テーラードジャケット","ノーカラージャケット","Gジャン/デニムジャケット","レザージャケット","ダウンジャケット","ライダースジャケット","ミリタリージャケット","ダウンベスト","ジャンパー/ブルゾン","ポンチョ","ロングコート","トレンチコート","ダッフルコート","ピーコート","チェスターコート","モッズコート","スタジャン毛皮/ファーコート","スプリングコート","スカジャン","その他"], class: "select"}`
+      } else if(idl == 1 && idm == 3) {
+        var html = `#{c.select :category_small, ["---","デニム/ジーンズ","ショートパンツ","カジュアルパンツ","ハーフパンツ","チノパン","ワークパンツ/カーゴパンツ","クロップドパンツ","サロペット/オーバーオール","オールインワン","サルエルパンツ","ガウチョパンツ","その他"], class: "select"}`
+      } else if(idl == 1 && idm == 4) {
+        var html = `#{c.select :category_small, ["---","ミニスカート","ひざ丈スカート","ロングスカート","キュロット","その他"], class: "select"}`
+      } else if(idl == 1 && idm == 5) {
+        var html = `#{c.select :category_small, ["---","ミニワンピース","ひざ丈ワンピース","ロングワンピース","その他"], class: "select"}`
+      } else if(idl == 1 && idm == 6) {
+        var html = `#{c.select :category_small, ["---","ハイヒール/パンプス","ブーツ","サンダル","スニーカー","ミュール","モカシン","ローファー/革靴","フラットシューズ/バレエシューズ","長靴/レインシューズ","その他"], class: "select"}`
+      } else if(idl == 1 && idm == 7) {
+        var html = `#{c.select :category_small, ["---","パジャマ","ルームウェア"], class: "select"}`
+      } else if(idl == 1 && idm == 8) {
+        var html = `#{c.select :category_small, ["---","ソックス","スパッツ/レギンス","ストッキング/タイツ","レッグウォーマー","その他"], class: "select"}`
+      } else if(idl == 1 && idm == 9) {
+        var html = `#{c.select :category_small, ["---","ニットキャップ/ビーニー","ハット","ハンチング/ベレー帽","キャップ","キャスケット","麦わら帽子","その他"], class: "select"}`
+      } else if(idl == 1 && idm == 10) {
+        var html = `#{c.select :category_small, ["---","ハンドバッグ","トートバッグ","エコバッグ","リュック/バックパック","ボストンバッグ","スポーツバッグ","ショルダーバッグ","クラッチバッグ","ポーチ/バニティ","ボディバッグ/ウェストバッグ","マザーズバッグ","メッセンジャーバッグ","ビジネスバッグ","旅行用バッグ/キャリーバッグ","ショップ袋","和装用バッグ","かごバッグ","その他"], class: "select"}`
+      } else if(idl == 1 && idm == 11) {
+        var html = `#{c.select :category_small, ["---","ネックレス","ブレスレット","バングル/リストバンド","リングピアス(片耳用)","ピアス(両耳用)","イヤリング","アンクレットブローチ/コサージュ","チャーム","その他"], class: "select"}`
+      } else if(idl == 1 && idm == 12) {
+        var html = `#{c.select :category_small, ["---","ヘアゴム/シュシュ","ヘアバンド/カチューシャ","ヘアピン","その他"], class: "select"}`
+      } else if(idl == 1 && idm == 13) {
+        var html = `#{c.select :category_small, ["---","長財布","折り財布","コインケース/小銭入れ","名刺入れ/定期入れ","キーケース","キーホルダー","手袋/アームカバー","ハンカチ","ベルト","マフラー/ショール","ストール/スヌード","バンダナ/スカーフ","ネックウォーマー","サスペンダー","サングラス/メガネ","モバイルケース/カバー","手帳","イヤマフラー","傘","レインコート/ポンチョ","ミラー","タバコグッズ","その他"], class: "select"}`
+      } else if(idl == 1 && idm == 14) {
+        var html = `#{c.select :category_small, ["---","腕時計(アナログ)","腕時計(デジタル)","ラバーベルト","レザーベルト","金属ベルト","その他"], class: "select"}`
+      } else if(idl == 1 && idm == 15) {
+        var html = `#{c.select :category_small, ["---","前髪ウィッグ","ロングストレート","ロングカール","ショートストレート","ショートカール","その他"], class: "select"}`
+      } else if(idl == 1 && idm == 16) {
+        var html = `#{c.select :category_small, ["---","浴衣","着物","振袖","長襦袢/半襦袢","水着セパレート","水着ワンピース","水着スポーツ用","その他"], class: "select"}`
+      } else if(idl == 1 && idm == 17) {
+        var html = `#{c.select :category_small, ["---","スカートスーツ上下","パンツスーツ上下","ドレス","パーティーバッグ","シューズ","ウェディング","その他"], class: "select"}`
+      } else if(idl == 1 && idm == 18) {
+        var html = `#{c.select :category_small, ["---","トップス","アウター","インナー","ワンピース","パンツ/スパッツ","スカート","パジャマ","授乳服","その他"], class: "select"}`
+      // メンズ
+      } else if(idl == 2 && idm == 1) {
+        var html = `#{c.select :category_small, ["---","Tシャツ/カットソー(半袖/袖なし)","Tシャツ/カットソー(七分/長袖)","シャツ","ポロシャツ","タンクトップ","ニット/セーター","パーカー","カーディガン","スウェット","ジャージ","ベスト","その他"], class: "select"}`
+      } else if(idl == 2 && idm == 2) {
+        var html = `#{c.select :category_small, ["---","テーラードジャケット","ノーカラージャケット","Gジャン/デニムジャケット","レザージャケット","ダウンジャケット","ライダースジャケット","ミリタリージャケット","ナイロンジャケット","フライトジャケット","ダッフルコート","ピーコート","ステンカラーコート","トレンチコート","モッズコート","チェスターコート","スタジャン","スカジャン","ブルゾン","マウンテンパーカー","ダウンベスト","ポンチョ","カバーオール","その他"], class: "select"}`
+      } else if(idl == 2 && idm == 3) {
+        var html = `#{c.select :category_small, ["---","デニム/ジーンズ","ワークパンツ/カーゴパンツ","スラックス","チノパン","ショートパンツ","ペインターパンツ","サルエルパンツ","オーバーオール","その他"], class: "select"}`
+      } else if(idl == 2 && idm == 4) {
+        var html = `#{c.select :category_small, [""], class: "select"}`
+      } else if(idl == 2 && idm == 5) {
+        var html = `#{c.select :category_small, [""], class: "select"}`
+      } else if(idl == 2 && idm == 6) {
+        var html = `#{c.select :category_small, [""], class: "select"}`
+      } else if(idl == 2 && idm == 7) {
+        var html = `#{c.select :category_small, [""], class: "select"}`
+      } else if(idl == 2 && idm == 8) {
+        var html = `#{c.select :category_small, [""], class: "select"}`
+      } else if(idl == 2 && idm == 9) {
+        var html = `#{c.select :category_small, [""], class: "select"}`
+      } else if(idl == 2 && idm == 10) {
+        var html = `#{c.select :category_small, [""], class: "select"}`
+      } else if(idl == 2 && idm == 11) {
+        var html = `#{c.select :category_small, [""], class: "select"}`
+      } else if(idl == 2 && idm == 12) {
+        var html = `#{c.select :category_small, [""], class: "select"}`
+      } else if(idl == 2 && idm == 13) {
+        var html = `#{c.select :category_small, [""], class: "select"}`
+      } else if(idl == 2 && idm == 14) {
+        var html = `#{c.select :category_small, [""], class: "select"}`
+      }
+      return html;
+    }
+    
+    //changeした時削除しないといけない
+
+    $('#category_large').on('change',function(){
+      $('#category_category_medium').remove();
+      $('#category_category_small').remove();
+      $('#main-detail').css({'height':'420'})
+      var indexId = getIndexNo('category_category_large');
+      var html = mediumbuildHTML(indexId);
+      $('#add_select').append(html);
+    })
+    $(document).on('change','#category_medium',function(){
+      $('#category_category_small').remove();
+      $('#main-detail').css({'height':'480'})
+      var indexId_large = getIndexNo('category_category_large');
+      var indexId_medium = getIndexNo('category_category_medium');
+      var html = smallbuildHTML(indexId_large,indexId_medium);
+      $('#add_select').append(html);
+    })
+  });

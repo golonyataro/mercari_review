@@ -1,0 +1,131 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "UTF-8"}/
+    %link{:rel => "stylesheet"}/
+    %title メルカリ出品画面
+  %body
+    .exhibition
+      = render partial: "layouts/mercari-top"
+      %main
+        .main-contents
+          .main-header
+            %p 商品の情報を入力
+        = form_for @item do |f|
+          .main-contents
+            .main-image
+              .main-head
+                %p.main-image-name 出品画像
+                %p.main-image-hissu 必須
+                %br/
+                %p.main-image-saidai 最大10枚までアップロードできます
+                %br/
+                = f.label :image, for: "item-images" do
+                  %i.fas.fa-camera
+                  = f.file_field :image , class: 'hidden', id: "item-images"
+          .main-contents
+            .main-name
+              %p.main-head-name 商品名
+              %p.main-hissu 必須
+              %br/
+              = f.text_field :name, placeholder: '商品名（必須 40文字まで）', class: "input"
+            .main-explain
+              %p.main-head-name 商品の説明
+              %p.main-hissu 必須
+              %br/
+              = f.text_area :explain, placeholder: '商品の説明（必須1,000文字以内） （色、素材、重さ、定価、注意点など）例）2010頃に1蔓延で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', class: "textarea"
+          .main-contents
+            .main-detail
+              .main-contents-left
+                %p.main-contents-left-name 商品の詳細
+              .main-contents-right
+                = fields_for @category do |c|
+                  = render partial: "category", locals: {c: c}
+                  .main-select
+                    %p.main-head-name カテゴリー
+                    %p.main-hissu 必須
+                    %br/
+                    #category_large
+                      = c.select :category_large, ["---","レディース","メンズ","ベビー・キッズ","インテリア・住まい・小物","本・音楽・ゲーム","おもちゃ・ホビー・グッズ","コスメ・香水・美容","家電・スマホ・カメラ","スポーツ・レジャー","ハンドメイド","チケット","自転車・オートバイ","その他"], class: "select"
+                  .main-select
+                    #add_select
+                    .main-select
+                      %p.main-head-name サイズ
+                      %p.main-hissu 必須
+                      %br/
+                      = c.select :category_size, ["---","テスト"], class: "select", id: "select_btn"
+                = fields_for @bland do |b|
+                  .main-select
+                    %p.main-head-name ブランド
+                    %p.main-hissu 任意
+                    %br/
+                    = b.select :bland_name, ["---","テスト"], class: "select"
+                .main-select
+                  %p.main-head-name 商品の状態
+                  %p.main-hissu 必須
+                  %br/
+                  = f.select :status, ["---","新品、未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"], class: "select"
+          .main-contents
+            .main-shipping-method
+              .main-contents-left
+                %p.main-contents-left-name 配送について
+              .main-contents-right
+                .main-select
+                  %p.main-head-name 配送量の負担
+                  %p.main-hissu 必須
+                  %br/
+                  = f.select :shipping_which, ["---","送料込み(出品者負担)","着払い(購入者負担)"]
+                .main-select
+                  %p.main-head-name 配送の方法
+                  %p.main-hissu 必須
+                  %br/
+                  = f.select :shipping_method, ["---","未定","クロネコヤマト","ゆうパック","ゆうメール"]
+                .main-select
+                  %p.main-head-name 発送元の地域
+                  %p.main-hissu 必須
+                  %br/
+                  = f.select :shipping_region, ["---","テスト"]
+                .main-select
+                  %p.main-head-name 発送までの日数
+                  %p.main-hissu 必須
+                  %br/
+                  = f.select :shipping_day, ["---","1~2日で発送","2~3日で発送","4~7日で発送"]
+          .main-contents
+            .main-price
+              .main-contents-left
+                %p.main-contents-left-name 販売価格(300〜9,999,999)
+              .main-contents-right
+                %div
+                  %p.main-head-name 価格
+                  %p.main-hissu 必須
+                  %br/
+                  = f.text_field :price, placeholder: '例）300'
+                %div
+                  %p.main-head-name 販売手数料(10%)
+                  %br/
+                %div
+                  %p.main-head-name 販売利益
+          .main-bottom
+            .main-confirmation
+              %a{:href => ""}> 禁止されている出品
+              、
+              = succeed "\u3092\u5FC5\u305A\u3054\u78BA\u8A8D\u304F\u3060\u3055\u3044\u3002" do
+                %a{:href => ""} 行為
+              %br/
+              またブランド品でシリアルナンバー等がある場合はご記載ください。
+              = succeed "\u306F\u72AF\u7F6A\u3067\u3042\u308A\u51E6\u7F70\u3055\u308C\u308B\u53EF\u80FD\u6027\u304C\u3042\u308A\u307E\u3059\u3002" do
+                %a{:href => ""} 偽ブランドの販売
+              %br/
+              また、出品をもちまして
+              = succeed "\u306B\u540C\u610F\u3057\u305F\u3053\u3068\u306B\u306A\u308A\u307E\u3059\u3002" do
+                %a{:href => ""} 加盟店規約
+              %br/
+            .main-btn
+              .new-btn
+                = f.submit "編集する", class: "exhibition-btn"
+              .exit-btn
+                %a{:href => "/"} もどる
+                %div
+              %footer
+                = render partial: "layouts/mercari-bottom"

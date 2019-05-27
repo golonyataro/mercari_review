@@ -1,0 +1,39 @@
+!!!
+%html{:lang => "ja"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "UTF-8"}/
+    %link{:rel => "stylesheet"}/
+    %title メルカリ検索一覧
+  %body
+    .home
+      = render partial: "header"
+      .pan
+        %ul
+          %li= link_to("メルカリ","/", class: "current-page")
+    .search
+      .search-select
+        .search-select-btn
+          %i.fas.fa-sort-amount-down
+          %p 並び替え
+        .search-select-btn
+          %i.fas.fa-search
+          %p 詳細検索
+      %p.search-title 検索結果
+      .search-items
+        %ul
+          - @items.each do |item|
+            %a{:href => "/items/#{item.id}"}
+              %li.search-item
+                .relative
+                  %img{:alt => "", :src => "#{item.image}"}/
+                  - if item.buyer_id != 0
+                    %p.sold SOLD
+                .search-item-detail
+                  %p.item-name= item.name
+                  .item-price
+                    %p.item-price-sum
+                      ¥#{item.price}
+                    %p.item-price-tax (税込)
+    .home
+      = render partial: "footer"

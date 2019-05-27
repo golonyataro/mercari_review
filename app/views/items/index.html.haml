@@ -3,7 +3,7 @@
     = render partial: "header"
     %main
       = link_to("メルガチャ","/items/random_page", class: "btn-random")
-      %a.btn-exhibition{:href => "/items/new"}
+      = link_to new_item_path, class: "btn-exhibition" do
         %i.fas.fa-camera.fa-lg 出品
       #top-banner.top-banner
         = image_tag "http://www.v3wall.com/wallpaper/3840_1200/1406/3840_1200_201406231140461375800.jpg", alt: ""
