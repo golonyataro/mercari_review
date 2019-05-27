@@ -1,0 +1,46 @@
+.users{
+  overflow: scroll;
+  background: rgb(245, 245, 245);
+  header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    
+    img{
+      width: 120px;
+      height: 33px;
+    }
+  }
+
+  footer{
+    .footer-head{
+      text-align: center;
+      margin: 40px 0;
+
+      a{
+        display: block;
+        font-size: 12px;
+        margin: 0 5px;
+        text-decoration: none;
+      }
+    }
+
+    .footer-image{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+
+      img{
+        width: 80px;
+        height: 65px;
+      }
+    }
+
+    .footer-p{
+      text-align: center;
+      font-size: 13px;
+    }
+  }
+}

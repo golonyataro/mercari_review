@@ -1,0 +1,233 @@
+.exhibition{
+  overflow: scroll;
+  background: rgb(245, 245, 245);
+
+  header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    
+    img{
+      width: 185px;
+      height: 49px;
+    }
+  }
+
+  main{
+    background-color: white;
+    width: 700px;
+    margin: 0 auto;
+
+    .main-contents{
+      padding: 50px;
+      border-bottom: solid 1px lightgray;
+
+      .main-head-name{
+        float: left;
+        font-size: 14px;
+      }
+
+      .main-hissu{
+        float: left;
+        font-size: 10px;
+        color: white;
+        background-color: #ea352d;
+        border-radius: 7px;
+        padding: 2px 7px;
+        margin-left: 8px;
+      }
+
+      &-left{
+        float:left;
+        width: 40%;
+        height: 100%;
+
+        &-name{
+          color: #888;
+          font-size: 14px;
+        }
+      }
+
+      &-right{
+        float: left;
+        width: 60%;
+      }
+    }
+    
+
+    .main-header{
+      p{
+        text-align: center;
+        padding: 0 16px;
+        font-size: 22px;
+      }
+    }
+
+    .main-image{
+      &-name{
+        float: left;
+        font-size: 16px;
+      }
+      &-hissu{
+        float: left;
+        font-size: 12px;
+        color: white;
+        background-color: #ea352d;
+        border-radius: 7px;
+        padding: 2px 7px;
+        margin-left: 10px;
+      }
+      &-saidai{
+        font-size: 12px;
+        margin-top: 8px;
+      }
+      i{
+        border: 1px dashed #ccc;
+        padding: 60px 290px;
+        background: #f5f5f5;
+        text-align: center;
+      }
+      .hidden{
+        display: none;
+      }
+
+      .main-head{
+        .add-image{
+          display: flex;
+          img{
+            height: 138px;
+            width: 138px;
+          }
+          &-form{
+
+          }
+        } 
+      }
+    }
+
+    .main-name{
+      margin-bottom: 20px;
+      .input{
+        height: 48px;
+        width: calc(100% - 10px);
+        padding-left: 10px;
+        border-radius: 5px;
+        border: 1px solid lightgray;
+      }
+    }
+
+    .main-explain{
+      .textarea{
+        width: calc(100% - 20px);
+        height: 130px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid lightgray;
+      }
+      ::placeholder{
+        
+      }
+    }
+
+    .main-select{
+      
+      select{
+        height: 48px;
+        width: 100%;
+        border: 1px solid lightgray;
+        margin-bottom: 20px;
+      }
+    }
+
+    .main-detail{
+      height: 360px;
+    }
+
+    .main-shipping-method{
+      height: 400px;
+    }
+
+    .main-price{
+      height: 200px;
+      .fee{
+        margin-top: 20px;
+      }
+      .profit{
+        margin-top: 20px;
+        clear: both;
+      }
+    }
+
+    .main-bottom{
+      padding: 50px;
+
+      .main-confirmation{
+        font-size: 14px;
+      }
+
+      .main-btn{
+        .new-btn{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          
+          .exhibition-btn{
+            background-color: #ea352d;;
+            color: white;
+            margin-top: 40px;
+            text-align: center;
+            line-height: 48px;
+            width:100%;
+          }
+        }
+
+        .exit-btn{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          a{
+            background-color: #AAAAAA;
+            color: white;
+            margin-top: 24px;
+            text-align: center;
+            line-height: 48px;
+            width:50%;
+            text-decoration: none;
+          } 
+        }
+      }
+    }
+  }
+
+  footer{
+    .footer-head{
+      text-align: center;
+      margin: 40px 0;
+
+      a{
+        font-size: 12px;
+        margin: 0 5px;
+        text-decoration: none;
+      }
+    }
+
+    .footer-image{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+
+      img{
+        height: 65px;
+        width: 80px;
+      }
+    }
+
+    .footer-p{
+      text-align: center;
+      font-size: 13px;
+    }
+  }
+}

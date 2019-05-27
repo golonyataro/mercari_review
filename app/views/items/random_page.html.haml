@@ -1,0 +1,23 @@
+.home
+  = render partial: "header"
+.random-page
+  %main
+    .main-title
+      %p メルカリガチャガチャ
+    .main-content
+      .main-left
+        = image_tag "/assets/iOS_の画像_(5).png", alt: ""
+      .main-right
+        .main-right-100
+          %p 100ポイントで1回回せます
+        .main-right-explain
+          %p.overview ＜概要＞
+          %p.text ランダムで選ばれる1つの商品を、ガチャガチャの結果に応じた割引価格で購入できます！
+        .main-right-discount
+          %p 『大当たり』→ 全額無料
+          %p 『あたり』→ 2割引
+          %p 『ふつー』→ 1割引
+        .random-page-btn
+          = link_to("100Pを使ってガチャガチャを引く!", items_random_path, class: "random-btn", data: { confirm: "ガチャガチャを回しますか？" })
+.home
+  = render partial: "footer"

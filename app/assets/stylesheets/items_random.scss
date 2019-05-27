@@ -1,0 +1,83 @@
+.random-page{
+  background: #ea352d;
+  padding: 80px 0 130px 0;
+  main{
+    .main-title{
+      color: white;
+      text-align: center;
+      font-size: 30px;
+      padding-bottom: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      p{
+        border-bottom: 1px solid white;
+        width: 300px;
+      }
+    }
+    .main-content{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .main-left{
+        img{
+          height: 250px;
+          width: 250px;
+        }
+      }
+      .main-right{
+        width: 50%;
+        color: white;
+        &-100{
+          font-size: 12px;
+          margin-bottom: 10px;
+        }
+        &-explain{
+          .overview{
+            font-size: 13px;
+          }
+          .text{
+            font-size: 15px;
+          }
+        }
+        &-discount{
+          margin: 16px 0;
+          font-weight: 600;
+        }
+        .random-page-btn{
+          background: white;
+          text-align: center;
+          .random-btn{
+            background: white;
+            text-decoration: none;
+            color: #ea352d;
+            font-size: 14px;
+            line-height: 40px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.random{
+  p{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 100px;
+    color: rgb(255, 0, 170);
+  }
+  .random-link{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .link{
+      text-decoration: none;
+      background: rgb(255, 0, 170);
+      color: white;
+      padding: 20px 100px;
+    }
+  }
+}
