@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
       @category = Category.new
       @bland = Bland.new
     else
-      redirect_to("/users/sign_in")
+      redirect_to(new_user_session_path)
     end
   end
 
@@ -21,10 +21,10 @@ class ItemsController < ApplicationController
     unless params[:item][:image] == nil ||  params[:item][:name] == nil || params[:item][:price] == nil || params[:item][:explain] == nil || params[:item][:status] == "---" || params[:item][:shipping_which] == "---" || params[:item][:shipping_region] == "---" || params[:item][:shipping_method] == "---" || params[:item][:shipping_day] == "---"
       item_params = params.require(:item).permit(:image, :name, :explain, :status, :price, :shipping_which, :shipping_region, :shipping_method, :shipping_day).merge(exhibitor_id: exhibitor.id, category_id: category.id, bland_id: bland.id, buyer_id: 0)
       item = Item.create(item_params)
-      redirect_to("/")
+      redirect_to(root_path)
     else
       flash[:notice] = '値を正しく入力してください'
-      redirect_to("/items/new")
+      redirect_to(new_item_path)
     end
   end
 
@@ -52,7 +52,7 @@ class ItemsController < ApplicationController
     if user.id == current_user.id
       item.update(item_params)
     end
-    redirect_to("/")
+    redirect_to(root_path)
   end
 
   def destroy
@@ -61,7 +61,7 @@ class ItemsController < ApplicationController
     if user.id == current_user.id
       item.destroy
     end
-    redirect_to("/")
+    redirect_to(root_path)
   end
 
   def purchase
@@ -86,11 +86,11 @@ class ItemsController < ApplicationController
     card = Credit.where(user_id: current_user.id).first
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     Payjp::Charge.create(
-    :amount => @item.price,
-    :customer => card.customer_id,
-    :currency => 'jpy',
+    amount: @item.price,
+    customer: card.customer_id,
+    currency: 'jpy',
     )
-    redirect_to("/")
+    redirect_to(root_path)
   end
 
   def search
