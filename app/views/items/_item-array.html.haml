@@ -1,17 +1,2 @@
 .pickup-contents
-  = link_to("#{type}新着アイテム","", class: "pickup-type")
-  %br/
-  .pickup-content
-    - @items.each do |item|
-      - if item.category.category_large == "#{type}"
-        = link_to(item_path(id: item.id), class: "link") do
-          .relative
-            = image_tag "#{item.image}", alt: ""
-            - if item.buyer_id != 0
-              %p.sold SOLD
-          .item-detail
-            %p.item-name= item.name
-            .item-price
-              %p.item-price-sum
-                ¥#{item.price}
-              %p.item-price-tax (税込)
+  
