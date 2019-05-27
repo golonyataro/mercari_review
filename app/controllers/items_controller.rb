@@ -85,12 +85,16 @@ class ItemsController < ApplicationController
 
     card = Credit.where(user_id: current_user.id).first
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    Payjp::Charge.create(
+    if Payjp::Charge.create(
     amount: @item.price,
     customer: card.customer_id,
     currency: 'jpy',
     )
-    redirect_to(root_path)
+      redirect_to(root_path)
+    else
+      flash[:notice] = '購入できませんでした'
+    end
+
   end
 
   def search
