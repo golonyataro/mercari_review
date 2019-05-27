@@ -1,13 +1,6 @@
 .home
   = render partial: "items/header"
-  .pan
-    %ul
-      %li
-        = link_to("メルカリ", root_path, class: "page")
-      %li
-        %i.fas.fa-chevron-right
-      %li
-        = link_to("マイページ", "", class: "current-page")
+
 .mypage
   .mypage__user
     = image_tag "/assets/シマシマ.png", alt: ""
