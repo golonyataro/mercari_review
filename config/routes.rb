@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/users/new_select' => 'users#new_select'
   post 'users/pay' => 'users#pay'
   post 'users/card_delete' => 'users#card_delete'
-  resources :items,only: [:index,:new,:create,:show,:edit,:update,:destroy] do
+  resources :items do
     member do
       get 'purchase' => 'items#purchase'
       patch "purchase_patch" => 'items#purchace_patch'
